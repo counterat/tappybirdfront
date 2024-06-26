@@ -65,7 +65,8 @@ const initialState: UserProps = {
 		completed_tasks:[],
 		balance_in_tappycoin:0,
 		inviteLink:'',
-		birds: []
+		birds: [],
+		photo_url: 'https://telegra.ph/file/99e7fb4ff14703f8d0d7f.png'
 	},
 	loading: false,
 };
@@ -74,6 +75,10 @@ const userSlice = createSlice({
 	name: 'user',
 	initialState: { ...initialState },
 	reducers: {
+		setPhotoUrl(state, action:PayloadAction<string>){
+			state.user.photo_url = action.payload
+		},
+
 		setUsername(state, action:PayloadAction<string>){
 			state.user.username = action.payload
 		},
@@ -147,7 +152,7 @@ const userSlice = createSlice({
 	},
 });
 
-export const {setBoosters, setUsername, setUsersBirds, setInviteLink , setLimitenergy, setTappyCoin, setCompletedtasks, changeSquad, setHammers, setSign, setLimitExp, changeEnergy, setUserId, changeExp, changeLevel, changeCoin , setLevel, setUser} =
+export const {setBoosters, setPhotoUrl, setUsername, setUsersBirds, setInviteLink , setLimitenergy, setTappyCoin, setCompletedtasks, changeSquad, setHammers, setSign, setLimitExp, changeEnergy, setUserId, changeExp, changeLevel, changeCoin , setLevel, setUser} =
 	userSlice.actions;
 
 export default userSlice.reducer;

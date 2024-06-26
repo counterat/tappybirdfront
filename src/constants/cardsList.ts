@@ -47,8 +47,8 @@ export const SHOPLIST = [
 		img: '/assets/shop/random.png',
 		title: 'random egg',
 		subtitle: 'lvl 2—5',
-		price: '90 ',
-		isCoin: false,
+		price: '250 000 ',
+		isCoin: true,
 	},
 	{
 		id: 3,

@@ -47,7 +47,7 @@ function InviteFriendsModal({ isOpen, closeModal }: InviteFriendsModalProps) {
 				<div className={c.body}>
 					<span className={c.bodyText}>Invite a friend and get</span>
 					<div className={c.bodyReward}>
-						+5000 <img src="/assets/coin.png" alt="coin" />
+						+50000 <img src="/assets/coin.png" alt="coin" />
 					</div>
 				</div>
 				<FooterModalInvite name="t.me/testtappybird_bot" links={links} />

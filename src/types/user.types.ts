@@ -17,5 +17,6 @@ export type IUser = {
 	completed_tasks: number[],
 	balance_in_tappycoin:number,
 	inviteLink : string,
-	birds:IBird[]
+	birds:IBird[],
+	photo_url:string
 };

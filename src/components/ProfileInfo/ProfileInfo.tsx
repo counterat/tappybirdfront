@@ -17,7 +17,7 @@ function ProfileInfo({}: ProfileInfoProps) {
 	return (
 		<div className={c.profile}>
 			<div className={c.profileImageWrapper}>
-				{/* <img src="" alt="" className={c.profileImage} /> */}
+				 <img src={user.photo_url} alt="" className={c.profileImage} />
 			</div>
 			<div className={c.profileContent}>
 				<div className={c.profileContentNickname}>{user.username}</div>

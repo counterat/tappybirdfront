@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from 'store';
 import CheckCompleted from 'assets/icons/CheckCompleted';
 import CheckDefault from 'assets/icons/CheckDefault';
-import { changeChecking, setIsDoneTrue } from 'store/reducers/tasksReducer';
+import { changeChecking, changeCheckingToCheck, changeCheckingToCompleted, setIsDoneTrue } from 'store/reducers/tasksReducer';
 import { ITask } from 'types/Task.types';
 import { FetchUser } from 'api/user';
 import { changeCoin } from 'store/reducers/userReducer';
@@ -46,7 +46,7 @@ function SubTasksModal({ isOpen, closeModal, id }: SubTasksModalProps) {
     };
 
     const task = tasks.find((elem) => elem.id === id);
-
+  
     const findTaskById = (id: number): ITask | undefined => {
         return tasks.find(task => task.id === id);
     };
@@ -77,19 +77,20 @@ function SubTasksModal({ isOpen, closeModal, id }: SubTasksModalProps) {
                                 })}
                                 onClick={() => {
                                     console.log(subtask)
-                                    checkIsTaskCompleted(subtask.id).then(json=>{
-
-                                        if (json){
+                                    if (task){
+                                    checkIsTaskCompleted(task?.id).then(json=>{
+                                        if (!(user.completed_tasks.includes(subtask.id))){
+                                            dispatch(changeCheckingToCheck(subtask.id))
+                                        }
+                                        if (json && typeof json == 'object' && Object.keys(json).includes('coins')){
                                         dispatch(setCompletedtasks(json.completed_tasks))
                                         dispatch(setTappyCoin(json.balance_in_tappycoin))
                                         dispatch(changeCoin(json.coins))
-                                    }})
-                                    dispatch(
-										changeChecking(
-											subtask.id
-										)
-									);
-                                    dispatch(setIsDoneTrue(subtask.id))
+                                        dispatch(setIsDoneTrue(subtask.id))
+                                        dispatch(changeCheckingToCompleted(subtask.id))
+                                    }})}
+                                  
+                                    
                                 }}
                             >
                                 <img src={subtask.url} alt="no-image" />

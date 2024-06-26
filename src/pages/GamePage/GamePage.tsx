@@ -1,5 +1,5 @@
 import { TouchEvent, useCallback, useEffect, useState } from 'react';
-import { changeSquad, setSign, setUserId, setUsername } from 'store/reducers/userReducer';
+import { changeSquad, setPhotoUrl, setSign, setUserId, setUsername } from 'store/reducers/userReducer';
 import GameHeader from 'components/GameHeader';
 import GameBody from 'components/GameBody';
 import GameFooter from 'components/GameFooter';
@@ -106,6 +106,13 @@ function GamePage() {
 				coordY: e.changedTouches[0].pageY,
 			};
 			const result = fetchMinecoin(user.id).then(json=>{
+				if (!json){
+					return
+				}
+				if(typeof json != 'object'){
+					return
+				}
+				if (!(json.includes('coins')))
 				console.log(json)
 				if (json == 'buy egg'){
 					setIsEggsEmptyModal(true);
@@ -252,12 +259,13 @@ function GamePage() {
 			dispatch(setLeaders(json))
 		})
 		var WebApp = window.Telegram.WebApp; 
-		const result = fetchAuthorization(WebApp.initData , invitCode).then(json=>{
+		const result = fetchAuthorization('WebApp.initData' , invitCode).then(json=>{
 			
 			
 			if (json)
 			{
-				dispatch(setUsername(json.name))
+				dispatch(setPhotoUrl(json.photo_url))
+			dispatch(setUsername(json.name))
 			dispatch(setUsersBirds(json.birds))
 			dispatch(setUserId(json.id))
 			dispatch(setInviteLink(json.invite_link))
@@ -347,7 +355,9 @@ function GamePage() {
 					}}
 				/>
 			)}
-		</div> : <div></div>)
+		</div> : <div className={c.loadingWrapper}>
+			<div className={c.loader}></div>
+		</div>)
 	);
 }
 

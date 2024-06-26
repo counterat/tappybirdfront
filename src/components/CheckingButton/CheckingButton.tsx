@@ -11,7 +11,7 @@ import {
 	changeIsModalCheckingStatus,
 	changeIsModalSubtask,
 } from 'store/reducers/modalsReducer';
-import { changeChecking } from 'store/reducers/tasksReducer';
+import { changeChecking, changeCheckingToCheck, changeCheckingToCompleted } from 'store/reducers/tasksReducer';
 import { ITask } from 'types/Task.types';
 import { useAppSelector } from 'store';
 import { FetchUser } from 'api/user';
@@ -93,7 +93,7 @@ function CheckingButton({
 			return subtasks.filter((subtask) => user.completed_tasks.includes(subtask.id)).length;
 		}
 		return null;
-	}, [task.subtasks]);
+	}, [task]);
 	
 	const handleClick = useCallback(
 		(event: MouseEvent<HTMLButtonElement>) => {
@@ -102,7 +102,7 @@ function CheckingButton({
 			if (task.checking === 'completed') {
 				return;
 			}
-			if (task.checking === 'checking') {
+			/* if (task.checking === 'checking') {
 				checkIsTaskCompleted().then(json=>{
 					if (json){
 					dispatch(setCompletedtasks(json.completed_tasks))
@@ -112,7 +112,7 @@ function CheckingButton({
 				}})
 				dispatch(changeIsModalCheckingStatus(true));
 			} 
-		
+		 */
 
 			if (!(user.completed_tasks.includes(task.id))) {
 				const anchor = document.createElement('a');
@@ -120,27 +120,35 @@ function CheckingButton({
 				
 				anchor.target = '_blank';
 				anchor.click();
-				
+				dispatch(changeCheckingToCheck(task.id))
 				checkIsTaskCompleted().then(json=>{
 					console.log(json)
 					if (!(json)){
+			
 						const anchor = document.createElement('a');
 				anchor.href = href;
 				
 				anchor.target = '_blank';
 				anchor.click();
+				
 					}
 					else{
+						console.log(Object.keys(json))
+					
+						if ( Object.keys(json).includes('coins')){
+						
 						dispatch(setCompletedtasks(json.completed_tasks))
 						dispatch(setTappyCoin(json.balance_in_tappycoin))
 							dispatch(changeCoin(json.coins))
-					}
+							dispatch(changeCheckingToCompleted(task.id))
+						
+					}}
 				})
 				
 			}
-
+			if (task.checking == 'default'){
 			dispatch(changeChecking(task.id));
-		},
+		}},
 		[task]
 	);
 

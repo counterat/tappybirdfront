@@ -41,8 +41,31 @@ const tasksSlice = createSlice({
 				state.task.checking = stateChecking[index + 1] as TypeChecking;
 			}
 		},
+		changeCheckingToCheck(state, action: PayloadAction<number>) {
+			state.tasks.map((task) => {
+				if (task.id === action.payload) {
+					
+					task.checking = 'check' as TypeChecking;
 
-		
+					return task;
+				}
+
+				return task;
+			});
+		},
+		changeCheckingToCompleted(state, action: PayloadAction<number>) {
+			state.tasks.map((task) => {
+				if (task.id === action.payload) {
+					
+					task.checking = 'completed' as TypeChecking;
+
+					return task;
+				}
+
+				return task;
+			});
+		},
+
 
 		getTaskById(state, action: PayloadAction<number>) {
 			if (action.payload) {
@@ -62,7 +85,7 @@ const tasksSlice = createSlice({
 	},
 });
 
-export const { setTasks, setIsDoneTrue, changeChecking, getTaskById } =
+export const { setTasks, changeCheckingToCheck, changeCheckingToCompleted, setIsDoneTrue, changeChecking, getTaskById } =
 	tasksSlice.actions;
 
 export default tasksSlice.reducer;

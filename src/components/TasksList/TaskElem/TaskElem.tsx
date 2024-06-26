@@ -65,8 +65,11 @@ function TaskElem({
 			<div className={c.taskActions}>
 				<div className={c.taskActionsLeft}>
 					<span>reward</span>
-					<span>{task.reward}</span>
-					<img src="/assets/coin.png" alt="" />
+					{task.reward_in_tappy == 0 ? <span>{task.reward}</span> : <span>{task.reward_in_tappy}</span> }
+					{task.reward_in_tappy == 0 ?
+						<img src="/assets/coin.png" alt="" />
+						: "$TAPPY"
+					}
 				</div>
 				<CheckingButton
 					variant={user.completed_tasks.includes(task.id) ? 'completed' as TypeChecking :  task.checking as TypeChecking}
