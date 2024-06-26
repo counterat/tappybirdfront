@@ -107,12 +107,18 @@ function GamePage() {
 			};
 			const result = fetchMinecoin(user.id).then(json=>{
 				if (!json){
+					alert('!json')
 					return
 				}
 				if(typeof json != 'object'){
+					alert("typeof json != 'object'")
 					return
 				}
 				if (!(json.includes('coins')))
+				{
+					alert("!(json.includes('coins'))")
+					return 
+				}
 				console.log(json)
 				if (json == 'buy egg'){
 					setIsEggsEmptyModal(true);
