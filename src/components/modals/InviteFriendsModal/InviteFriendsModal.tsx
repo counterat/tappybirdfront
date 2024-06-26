@@ -48,7 +48,7 @@ Follow the link and get a bonus 50 000 $BRD token !`,
 				<div className={c.body}>
 					<span className={c.bodyText}>Invite a friend and get</span>
 					<div className={c.bodyReward}>
-						+50000 <img src="/assets/coin.png" alt="coin" /> + 10%
+					 10% + 50000 <img src="/assets/coin.png" alt="coin" /> 
 					</div>
 				</div>
 				<FooterModalInvite name="t.me/testtappybird_bot" links={links} />
