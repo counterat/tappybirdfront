@@ -29,8 +29,7 @@ function GameHeader() {
 					<span className={c.headerBalanceCoinText}>{formatCoin(coin)}</span>
 				</div>
 				<div className={c.headerBalanceTappy}>
-					$TAPPY
-					{user.balance_in_tappycoin}{' '}
+					{user.balance_in_tappycoin} $TAPPY
 					<button
 						className={c.headerBalanceButton}
 						onTouchEnd={(event) => event.stopPropagation()}

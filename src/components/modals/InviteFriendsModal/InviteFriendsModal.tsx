@@ -17,7 +17,8 @@ function InviteFriendsModal({ isOpen, closeModal }: InviteFriendsModalProps) {
 	console.log(user)
 	const links = {
 		path: user.inviteLink,
-		text: 'Hello world!',
+		text: `TAPPY BIRD is a new game on the Ton blockchain !
+Follow the link and get a bonus 50 000 $BRD token !`,
 	};
 	console.log(links)
 	useEffect(() => {
@@ -47,7 +48,7 @@ function InviteFriendsModal({ isOpen, closeModal }: InviteFriendsModalProps) {
 				<div className={c.body}>
 					<span className={c.bodyText}>Invite a friend and get</span>
 					<div className={c.bodyReward}>
-						+50000 <img src="/assets/coin.png" alt="coin" />
+						+50000 <img src="/assets/coin.png" alt="coin" /> + 10%
 					</div>
 				</div>
 				<FooterModalInvite name="t.me/testtappybird_bot" links={links} />
