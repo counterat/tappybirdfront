@@ -106,7 +106,7 @@ function GamePage() {
 				coordY: e.changedTouches[0].pageY,
 			};
 			const result = fetchMinecoin(user.id).then(json=>{
-				alert(json)
+			
 				if (json == 'buy egg'){
 					setIsEggsEmptyModal(true);
 					return
@@ -115,13 +115,7 @@ function GamePage() {
 					
 					return
 				}
-				if(typeof json != 'object'){
-					return
-				}
-				if (!(json.includes('coins')))
-					{
-						return 
-					}
+				
 				console.log(json)
 				
 				showDamage(coords, json.brds_for_tap);
