@@ -106,24 +106,23 @@ function GamePage() {
 				coordY: e.changedTouches[0].pageY,
 			};
 			const result = fetchMinecoin(user.id).then(json=>{
-				if (!json){
-					alert('!json')
-					return
-				}
-				if(typeof json != 'object'){
-					alert("typeof json != 'object'")
-					return
-				}
-				if (!(json.includes('coins')))
-				{
-					alert("!(json.includes('coins'))")
-					return 
-				}
-				console.log(json)
 				if (json == 'buy egg'){
 					setIsEggsEmptyModal(true);
 					return
 				}
+				if (!json){
+					
+					return
+				}
+				if(typeof json != 'object'){
+					return
+				}
+				if (!(json.includes('coins')))
+					{
+						return 
+					}
+				console.log(json)
+				
 				showDamage(coords, json.brds_for_tap);
 				dispatch(changeEnergy(json.energy))
 			if (json.current_level_of_egg > user.level || json.current_level_of_egg == 6 ){
