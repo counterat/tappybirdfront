@@ -9,18 +9,16 @@ interface InviteFriendsModalProps {
 	closeModal: () => void;
 }
 
-
-
 function InviteFriendsModal({ isOpen, closeModal }: InviteFriendsModalProps) {
 	const [active, setActive] = useState<'default' | 'show' | 'close'>('default');
-	const {user} = useAppSelector(state=>state.user)
-	console.log(user)
+	const { user } = useAppSelector((state) => state.user);
+	console.log(user);
 	const links = {
 		path: user.inviteLink,
 		text: `TAPPY BIRD is a new game on the Ton blockchain !
 Follow the link and get a bonus 50 000 $BRD token !`,
 	};
-	console.log(links)
+	console.log(links);
 	useEffect(() => {
 		if (isOpen) {
 			setActive('show');
@@ -48,7 +46,7 @@ Follow the link and get a bonus 50 000 $BRD token !`,
 				<div className={c.body}>
 					<span className={c.bodyText}>Invite a friend and get</span>
 					<div className={c.bodyReward}>
-					 10% + 50000 <img src="/assets/coin.png" alt="coin" /> 
+						50000 <img src="/assets/coin.png" alt="coin" /> + 10%
 					</div>
 				</div>
 				<FooterModalInvite name="t.me/testtappybird_bot" links={links} />
