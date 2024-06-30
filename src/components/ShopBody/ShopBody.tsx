@@ -30,10 +30,20 @@ function ShopBody() {
 	const buyShopItemHandler = (item_name: string, price: number) => {
 		return async (event: React.MouseEvent<HTMLButtonElement>) => {
 			event.preventDefault();
-			if (user.balance_in_tappycoin < price) {
-				dispatch(changeIsModalInsufficientFunds(true));
+			if (item_name.includes('random')){
+				if (user.coin < price){
+					dispatch(changeIsModalInsufficientFunds(true));
 				return;
+				}
 			}
+			else{
+				if (user.balance_in_tappycoin < price) {
+					dispatch(changeIsModalInsufficientFunds(true));
+					return;
+				}
+
+			}
+			
 			const result = await buyShopItem(item_name).then((json) => {
 				console.log(json);
 				if (json) {
