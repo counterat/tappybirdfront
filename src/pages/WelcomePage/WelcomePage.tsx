@@ -13,26 +13,12 @@ function WelcomePage() {
 	const [isDeviceCheck, setDeviceCheck] = useState(true);
 	const platform = Telegram.WebApp.platform;
 
-  let invitCode:number  = 0;
-	if (window.location.pathname.includes('/')){
-	invitCode =Number(window.location.pathname.split('/')[1])
+	let invitCode: number = 0;
+	if (window.location.pathname.includes('/')) {
+		invitCode = Number(window.location.pathname.split('/')[1]);
+	}
 
-}
-
-	// useEffect(() => {
-	// 	switch (platform) {
-	// 		case 'android':
-	// 		case 'ios':
-	// 			setDeviceCheck(true);
-	// 			break;
-
-	// 		default:
-	// 			setDeviceCheck(false);
-	// 			return;
-	// 	}
-	// }, [platform]);
-
-	/* useEffect(() => {
+	useEffect(() => {
 		switch (platform) {
 			case 'android':
 			case 'ios':
@@ -43,10 +29,11 @@ function WelcomePage() {
 				setDeviceCheck(false);
 				return;
 		}
-	}, [platform]) */
+	}, [platform]);
 	useEffect(() => {
 		window.Telegram.WebApp.expand();
 	}, []);
+
 	return (
 		<div className={c.container}>
 			{isDeviceCheck ? (

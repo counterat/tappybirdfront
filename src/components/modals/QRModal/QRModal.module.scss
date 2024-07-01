@@ -35,6 +35,8 @@
 		&QR {
 			width: 132px;
 			aspect-ratio: 1 / 1;
+			background: url('../../../../public/assets/qr.png') no-repeat
+				center/contain;
 		}
 	}
 }
