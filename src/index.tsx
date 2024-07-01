@@ -5,7 +5,7 @@ import App from './App';
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
-export const socket = new WebSocket('wss://tappyback.ton-runes.top/ws');
+export const socket = new WebSocket('wss://api.tappybrd.com/ws');
 root.render(
 	<React.StrictMode>
 		<App />

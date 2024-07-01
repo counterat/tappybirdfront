@@ -15,7 +15,7 @@ class fetchUser {
 	}
 
 	async authorize(initdata:string, invcitCode:number): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/authorize', {
+		const response = await fetch('https://api.tappybrd.com/authorize', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ class fetchUser {
 		return result;
 	}
 	async Minecoin(userId: number): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/minecoin', {
+		const response = await fetch('https://api.tappybrd.com/minecoin', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ class fetchUser {
 		return result;
 	}
 	async buyBooster(userId: number, sign: string, boosterName:string): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/buybooster', {
+		const response = await fetch('https://api.tappybrd.com/buybooster', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ class fetchUser {
 	}
 
 	async  sendSuccessfulTransaction(userId: number, amount: number): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/successful_transaction', {
+		const response = await fetch('https://api.tappybrd.com/successful_transaction', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ class fetchUser {
 		return result;
 	}
 	async getRefs(userId:number):Promise<any>{
-		const response = await fetch('https://tappyback.ton-runes.top/get_refs', {
+		const response = await fetch('https://api.tappybrd.com/get_refs', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ class fetchUser {
 	}
 
 	async getMoneyForRef(userId:number, refId:number):Promise<any>{
-		const response = await fetch('https://tappyback.ton-runes.top/get_coins_for_ref', {
+		const response = await fetch('https://api.tappybrd.com/get_coins_for_ref', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ class fetchUser {
 
 
 	async buyShopItem(userId: number, sign: string, item:string): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/buyshopitem', {
+		const response = await fetch('https://api.tappybrd.com/buyshopitem', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -159,7 +159,7 @@ class fetchUser {
 	}
 
 	async createSquad(userId: number, sign: string, link: string): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/create_squad', {
+		const response = await fetch('https://api.tappybrd.com/create_squad', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -180,7 +180,7 @@ class fetchUser {
 	}
 
 	async fetchTasksForGeo(userId: number, sign: string): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/fetch_tasks_for_geo', {
+		const response = await fetch('https://api.tappybrd.com/fetch_tasks_for_geo', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -200,7 +200,7 @@ class fetchUser {
 	}
 	
 	async joinSquad(userId: number, sign: string, squadId:number): Promise<any> {
-		const response = await fetch('https://tappyback.ton-runes.top/join_squad', {
+		const response = await fetch('https://api.tappybrd.com/join_squad', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -222,7 +222,7 @@ class fetchUser {
 	
 
 	async checkIsTaskCompleted(userId:number, taskId:number, sign:string) {
-		const response = await fetch('https://tappyback.ton-runes.top/check_is_task_completed', {
+		const response = await fetch('https://api.tappybrd.com/check_is_task_completed', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -243,7 +243,7 @@ class fetchUser {
 	}
 
 	async getUsersLeaderboard() {
-		const response = await fetch('https://tappyback.ton-runes.top/usersleaderboard', {
+		const response = await fetch('https://api.tappybrd.com/usersleaderboard', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -258,7 +258,7 @@ class fetchUser {
 		return usersLeaders;
 	}
 	async getSquadsLeaderboard() {
-		const response = await fetch('https://tappyback.ton-runes.top/squadsleaderboard', {
+		const response = await fetch('https://api.tappybrd.com/squadsleaderboard', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
