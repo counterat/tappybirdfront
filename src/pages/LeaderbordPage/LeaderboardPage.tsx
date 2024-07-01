@@ -11,6 +11,7 @@ import { useMemo } from 'react';
 interface ILeaderData {
   coins: number;
   name: string;
+  url: string
 }
 
 type LeaderRecord = Record<number, ILeaderData>;
@@ -21,6 +22,7 @@ interface ILeaderBoard {
   id: number;
   nickname: string;
   coins: number;
+  url: string
 }
 
 function LeaderboardPage() {
@@ -50,6 +52,7 @@ function LeaderboardPage() {
       id: id,
       nickname: user.name,
       coins: user.coins,
+      url:user.url
     };
   };
 

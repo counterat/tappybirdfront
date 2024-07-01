@@ -13,6 +13,7 @@ interface ILeaderBoard {
   nickname: string;
   coins: number;
   place?:number;
+  url?:string
 }
 
 interface LeaderListProps {
@@ -64,7 +65,7 @@ function LeaderList({ elem, index, isJoin }: LeaderListProps) {
     <div className={c.wrapper}>
       <div className={c.imageWrapper}>{checkPlace(index, c.image)}</div>
       <div className={c.center}>
-        <img src="/assets/no-avatar.png" alt="avatar" className={c.avatarImage} />
+        <img src= {elem.url ? elem.url : "/assets/no-avatar.png"} alt="avatar" className={c.avatarImage} />
         <span className={c.title}>{formatLinks(elem.nickname)}</span>
       </div>
       <div className={c.right}>

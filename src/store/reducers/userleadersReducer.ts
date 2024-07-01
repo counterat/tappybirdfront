@@ -5,6 +5,7 @@ import { IUser } from 'types/user.types';
 interface LeaderData {
   coins: number;
   name: string;
+  url?:string
 }
 
 // Определение типа для каждого элемента массива

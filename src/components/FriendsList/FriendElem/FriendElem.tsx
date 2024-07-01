@@ -27,7 +27,7 @@ function FriendElem({ friend }: FriendElemProps) {
 	return (
 		<div className={c.friend}>
 			<div className={c.friendImageWrapper}>
-				<img src="/assets/leaderboard/no-avatar.png" alt="avatar" />
+				<img src={friend.url} alt="avatar" />
 			</div>
 			<span className={c.friendTitle}>{friend.title}</span>
 			<button className={c.friendButton} onClick={
