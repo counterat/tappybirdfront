@@ -90,7 +90,7 @@ function PaymentExchange({ closeModal }: PaymentExchangeProps) {
 				validUntil: Math.floor(Date.now() / 1000) + 60,
 				messages: [
 					{
-						address: 'UQD5h2QYHlhUBOXRrFIAj1t5LOPTL8c5pQHJlgaYXgECv4l3',
+						address: 'UQAeUBXODtfKkilx5zI0sdPy-gHUBNjCiz8-_FvRnDHFAhLc',
 						amount: String(Number(wallet.ton) * 1e9),
 					},
 				],

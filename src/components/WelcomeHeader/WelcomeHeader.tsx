@@ -9,7 +9,7 @@ function WelcomeHeader() {
 		<div className={c.header}>
 			<a
 				target="_blank"
-				href="https://discord.com/"
+				href="https://discord.gg/2CaWfT6P"
 				className={c.headerLink}
 				rel="noreferrer"
 			>
@@ -17,7 +17,7 @@ function WelcomeHeader() {
 			</a>
 			<a
 				target="_blank"
-				href="https://x.com/"
+				href="https://x.com/tappybirdd?s=21"
 				className={c.headerLink}
 				rel="noreferrer"
 			>
@@ -25,7 +25,7 @@ function WelcomeHeader() {
 			</a>
 			<a
 				target="_blank"
-				href="https://web.telegram.org/"
+				href="https://t.me/tappy_bird"
 				className={c.headerLink}
 				rel="noreferrer"
 			>
