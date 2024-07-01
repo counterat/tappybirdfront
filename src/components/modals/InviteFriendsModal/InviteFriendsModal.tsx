@@ -49,7 +49,7 @@ Follow the link and get a bonus 50 000 $BRD token !`,
 						50000 <img src="/assets/coin.png" alt="coin" /> + 10%
 					</div>
 				</div>
-				<FooterModalInvite name="t.me/testtappybird_bot" links={links} />
+				<FooterModalInvite name="t.me/tappybird_bot" links={links} />
 			</div>
 		</div>
 	);
